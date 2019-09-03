@@ -1,0 +1,56 @@
+{
+  "name": "keg",
+  "title": "Keg",
+  "keywords": [
+    "Keg"
+  ],
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "sideEffects": [
+    "dist/*",
+    "lib/*"
+  ],
+  "pre-commit": [],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "browserslist": [
+    "last 2 version",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 9"
+  ],
+  "bugs": {
+    "url": ""
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "joduplessis"
+    }
+  ],
+  "deprecated": false,
+  "version": "0.0.0",
+  "description": "A simple syncronous queue",
+  "scripts": {
+    "test": "",
+    "dev": "tsc -w -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "lint": "tslint --project ./"
+  },
+  "author": "Jo du Plessis",
+  "license": "ISC",
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.5.3"
+  }
+}
