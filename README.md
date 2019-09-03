@@ -1,3 +1,5 @@
+![](https://joduplessis-keg.s3-us-west-2.amazonaws.com/barrel.svg =50x50)
+
 # Keg
 
 > Keg is a straightforward messaging queue. It's not suitable for any form of production yet. Expect things to break & change without notice.
