@@ -1,6 +1,6 @@
 # Keg
 
-> Keg is a straightforward FIFO messaging queue. It's not suitable for any form of production yet. Expect things to break & change without notice.
+> Keg is a straightforward messaging queue. It's not suitable for any form of production yet. Expect things to break & change without notice.
 
 ## Installation
 You can install the library directly from master until it gets to a post v0.0.0 state.
