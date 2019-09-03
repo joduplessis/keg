@@ -1,4 +1,4 @@
-![](https://joduplessis-keg.s3-us-west-2.amazonaws.com/barrel.svg =50x50)
+![](https://joduplessis-keg.s3-us-west-2.amazonaws.com/barrel.svg | width=48)
 
 # Keg
 
