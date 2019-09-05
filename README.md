@@ -1,5 +1,5 @@
 
-<img src="https://joduplessis-keg.s3-us-west-2.amazonaws.com/barrel.svg" width="100" height="100">
+<img src="https://joduplessis-keg.s3-us-west-2.amazonaws.com/barrel.svg" width="90" height="90">
 
 # Keg
 

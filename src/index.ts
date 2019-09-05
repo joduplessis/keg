@@ -4,7 +4,7 @@
  * @constructor
  * @public
  */
-class Keg {
+export default class Keg {
   static instance: Keg;
   taps: any = {};
   queue: any = {};
