@@ -11,7 +11,7 @@ You can install the library directly from master until it gets to a post v0.0.0 
 ## Some example usage:
 
 ```
-Keg.tap('demo', async (val, pour) => {
+Keg.keg('kegger').tap('demo', async (val, pour) => {
   // 'val' is the current value for the demo queue
   // We can process it here
   // And then move onto the next item in the queue
@@ -19,12 +19,12 @@ Keg.tap('demo', async (val, pour) => {
 })
 
 // Add middleware to each message
-Keg.spike('demo', val => {
+Keg.keg('kegger').spike('demo', val => {
   return window.btoa(val)
 })
 
-Keg.refill('demo', 'Some text')
-Keg.refill('demo', { order: 'Object message types' })
-Keg.refill('demo', 42)
+Keg.keg('kegger').refill('demo', 'Some text')
+Keg.keg('kegger').refill('demo', { order: 'Object message types' })
+Keg.keg('kegger').refill('demo', 42)
 
 ```

@@ -5,30 +5,45 @@
  * @public
  */
 export default class Keg {
-  static instance: Keg;
+  static instances: any = {};
+
   taps: any = {};
   queue: any = {};
   spikes: any = {};
+  name: string = "";
 
-  constructor() {}
+  constructor(name) {
+    this.name = name;
+  }
+
+  /**
+   * Initialized the singletone factory
+   * @param {String} kegName - ID for the object
+   */
+
+  static keg(kegName) {
+    // If it doesn't exist, create it
+    if (!this.instances[kegName]) this.instances[kegName] = new Keg(kegName);
+
+    // Return the correct keg to use
+    return this.instances[kegName];
+  }
 
   /**
    * Initialized the listening mechanic
    * @param {String} tapName - topic for the queue
    * @param {Object} callback - function for each call to process the q
    */
-  static tap(tapName: string, callback: any) {
-    if (!this.instance) this.instance = new Keg();
-
+  tap(tapName: string, callback: any) {
     // If this outlet doesn't exist - create it
-    if (!this.instance.taps[tapName]) this.instance.taps[tapName] = [];
+    if (!this.taps[tapName]) this.taps[tapName] = [];
 
     // Push our callback to the stack
-    this.instance.taps[tapName].push(callback);
+    this.taps[tapName].push(callback);
 
     // Run it as soon as it's up
     // There might be nothing
-    this.instance.pour(tapName);
+    this.pour(tapName);
   }
 
   /**
@@ -36,22 +51,19 @@ export default class Keg {
    * @param {String} tapName - specifies the queue
    * @param {Object} callback - middleware function the value passes through
    */
-  static spike(tapName: string, func: any) {
-    // If there isn't an object, create it
-    if (!this.instance) this.instance = new Keg();
-
+  spike(tapName: string, func: any) {
     // If this spike doesn't exist, create it
-    if (!this.instance.spikes[tapName]) this.instance.spikes[tapName] = [];
+    if (!this.spikes[tapName]) this.spikes[tapName] = [];
 
     // Add this value to the Q
-    this.instance.spikes[tapName].push(func);
+    this.spikes[tapName].push(func);
   }
 
   /**
    * Outlet and sending values to listeners
    * @param {String} tapName - specifies the queue
    */
-  async pour(tapName: string) {
+  pour(tapName: string) {
     // If there is no queue - return
     if (!this.queue[tapName]) return;
 
@@ -82,20 +94,17 @@ export default class Keg {
    * @param {String} tapName - specifies the queue
    * @param {Object} value - actual message
    */
-  static refill(tapName: string, value: any) {
-    // If there isn't an object, create it
-    if (!this.instance) this.instance = new Keg();
-
+  refill(tapName: string, value: any) {
     // If this tap doesn't exist, create it
-    if (!this.instance.queue[tapName]) this.instance.queue[tapName] = [];
+    if (!this.queue[tapName]) this.queue[tapName] = [];
 
     // Add this value to the Q
-    this.instance.queue[tapName].push(value);
+    this.queue[tapName].push(value);
 
     // Also check it's fine
-    if (!this.instance.taps[tapName]) return;
+    if (!this.taps[tapName]) return;
 
     // And then only ever auto run the first value
-    if (this.instance.queue[tapName].length == 1) this.instance.pour(tapName);
+    if (this.queue[tapName].length == 1) this.pour(tapName);
   }
 }
