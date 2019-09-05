@@ -6,7 +6,7 @@
 > Keg is a messaging queue. It's not suitable for production yet. Expect things to break & change without notice. It includes TypeScript support.
 
 ## Installation
-You can install the library directly from master until it gets to a post v0.0.0 state.
+You can install the library directly from here until it gets to a post `0.0.0` state.
 ```
 npm i --save joduplessis/keg#master
 ```
@@ -17,7 +17,7 @@ It's helpful to think in these terms:
 - Tap: outlet of messages received, identified by an ID
 - Spike: a reduce orientated middleware for messages
 - Refill: adds a new message to a keg:tap
-- pour(): something like next() to move through the queue
+- pour(): something like a `next()` to move through the queue
 
 ## Some example usage:
 ```

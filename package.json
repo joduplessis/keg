@@ -36,7 +36,7 @@
   ],
   "deprecated": false,
   "version": "0.0.0",
-  "description": "A simple syncronous queue",
+  "description": "Keg is a flexible messaging queue with middleware powers.",
   "scripts": {
     "test": "",
     "dev": "tsc -w -p tsconfig.json",
@@ -44,7 +44,7 @@
     "lint": "tslint --project ./"
   },
   "author": "Jo du Plessis",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {},
   "dependencies": {},
   "devDependencies": {
