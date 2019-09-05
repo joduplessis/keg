@@ -13,9 +13,9 @@ npm i --save joduplessis/keg#master
 
 ## Terminology
 It's helpful to think in these terms:
-- Keg: overall app, topic stream
-- Tap: outlet of messages received, identified by a name ID
-- Spike: middleware for a received message
+- Keg: overall queue ID
+- Tap: outlet of messages received, identified by an ID
+- Spike: middleware for processing a received message
 - Refill: add a message to topic
 - pour(): something like next() (move through the queue)
 
@@ -30,12 +30,14 @@ Keg.keg('kegger').tap('demo', async (val, pour) => {
 })
 
 // Add middleware to each message
-Keg.keg('kegger').spike('demo', val => {
-  return window.btoa(val)
+Keg.keg('kegger').spike('demo', in => {
+  return window.btoa(in)
 })
 
 Keg.keg('kegger').refill('demo', 'Some text')
 Keg.keg('kegger').refill('demo', { order: 'Object message types' })
 Keg.keg('kegger').refill('demo', 42)
-
 ```
+
+## Spiking your drink
+Any middleware that gets added will act as a pipe. It take the value `in` & passes it onto the next **spike**. 
