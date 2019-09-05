@@ -15,6 +15,7 @@ Keg.keg('kegger').tap('demo', async (val, pour) => {
   // 'val' is the current value for the demo queue
   // We can process it here
   // And then move onto the next item in the queue
+  // Equivalent to next()
   pour()
 })
 
