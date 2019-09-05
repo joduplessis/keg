@@ -3,7 +3,7 @@
 
 # Keg
 
-> Keg is a messaging queue. It's not suitable for production yet. Expect things to break & change without notice.
+> Keg is a messaging queue. It's not suitable for production yet. Expect things to break & change without notice. It includes TypeScript support.
 
 ## Installation
 You can install the library directly from master until it gets to a post v0.0.0 state.
