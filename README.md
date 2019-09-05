@@ -40,7 +40,7 @@ Keg.keg('kegger').refill('demo', 42)
 ```
 
 ## Spiking your drink
-Any middleware that gets added will act as a pipe. It take the value `in` & passes it onto the next **spike**.
+Any middleware that gets added will act as a pipe. It take the value `in` & passes it onto the next `spike()`.
 
 ## Roadmap
 - [x]  Get base library set up
