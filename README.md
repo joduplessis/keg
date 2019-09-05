@@ -3,13 +3,23 @@
 
 # Keg
 
-> Keg is a straightforward messaging queue. It's not suitable for any form of production yet. Expect things to break & change without notice.
+> Keg is a messaging queue. It's not suitable for any form of production yet. Expect things to break & change without notice.
 
 ## Installation
 You can install the library directly from master until it gets to a post v0.0.0 state.
+```
+npm i --save joduplessis/keg#master
+```
+
+## Terminology
+It's helpful to think in these terms:
+- Keg: overall app, topic stream
+- Tap: outlet of messages received, identified by a name ID
+- Spike: middleware for a received message
+- Refill: add a message to topic
+- pour(): something like next() (move through the queue)
 
 ## Some example usage:
-
 ```
 Keg.keg('kegger').tap('demo', async (val, pour) => {
   // 'val' is the current value for the demo queue
