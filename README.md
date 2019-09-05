@@ -15,7 +15,7 @@ npm i --save joduplessis/keg#master
 It's helpful to think in these terms:
 - Keg: overall queue ID
 - Tap: outlet of messages received, identified by an ID
-- Spike: middleware for processing a received message
+- Spike: a reduce orientated middleware for message values
 - Refill: add a message to topic
 - pour(): something like next() (move through the queue)
 
@@ -40,4 +40,4 @@ Keg.keg('kegger').refill('demo', 42)
 ```
 
 ## Spiking your drink
-Any middleware that gets added will act as a pipe. It take the value `in` & passes it onto the next **spike**. 
+Any middleware that gets added will act as a pipe. It take the value `in` & passes it onto the next **spike**.
