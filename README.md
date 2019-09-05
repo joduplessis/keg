@@ -15,9 +15,9 @@ npm i --save joduplessis/keg#master
 It's helpful to think in these terms:
 - Keg: overall queue ID
 - Tap: outlet of messages received, identified by an ID
-- Spike: a reduce orientated middleware for message values
-- Refill: add a message to topic
-- pour(): something like next() (move through the queue)
+- Spike: a reduce orientated middleware for messages
+- Refill: adds a new message to a keg:tap
+- pour(): something like next() to move through the queue
 
 ## Some example usage:
 ```
