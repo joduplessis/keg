@@ -12,7 +12,7 @@ export default class Keg {
   spikes: any = {};
   name: string = "";
 
-  constructor(name) {
+  constructor(name: string) {
     this.name = name;
   }
 
@@ -21,7 +21,7 @@ export default class Keg {
    * @param {String} kegName - ID for the object
    */
 
-  static keg(kegName) {
+  static keg(kegName: string) {
     // If it doesn't exist, create it
     if (!this.instances[kegName]) this.instances[kegName] = new Keg(kegName);
 
