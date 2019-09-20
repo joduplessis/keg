@@ -8,7 +8,6 @@
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
   "sideEffects": [
-    "dist/*",
     "lib/*"
   ],
   "pre-commit": [],
@@ -16,7 +15,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "files": [
-    "dist",
     "lib"
   ],
   "browserslist": [
