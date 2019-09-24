@@ -1,5 +1,5 @@
 {
-  "name": "keg",
+  "name": "@joduplessis/keg",
   "title": "Keg",
   "keywords": [
     "Keg"
@@ -11,9 +11,6 @@
     "lib/*"
   ],
   "pre-commit": [],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "files": [
     "lib"
   ],
@@ -35,7 +32,7 @@
   ],
   "homepage": "https://github.com/joduplessis/keg",
   "deprecated": false,
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Keg is a flexible messaging queue with middleware powers.",
   "scripts": {
     "test": "",

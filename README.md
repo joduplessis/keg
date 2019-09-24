@@ -8,7 +8,7 @@
 ## Installation
 You can install the library directly from here until it gets to a post `0.0.0` state.
 ```
-npm i --save joduplessis/keg#master
+npm i @joduplessis/keg
 ```
 
 ## Terminology
