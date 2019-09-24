@@ -47,5 +47,5 @@ Any middleware that gets added will act as a pipe. It take the value `in` & pass
 - [x]  Choose a nifty logo
 - [x]  Add support for multiple kegs
 - [ ]  Add tests
-- [ ]  Package for NPM/GitHub
+- [x]  Package for NPM
 - [ ]  Add support for external pub/subs
