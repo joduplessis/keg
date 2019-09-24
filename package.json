@@ -1,5 +1,5 @@
 {
-  "name": "@joduplessis/keg",
+  "name": "keg",
   "title": "Keg",
   "keywords": [
     "Keg"
@@ -12,7 +12,7 @@
   ],
   "pre-commit": [],
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "files": [
     "lib"
