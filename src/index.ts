@@ -20,7 +20,6 @@ export default class Keg {
    * Initialized the singletone factory
    * @param {String} kegName - ID for the object
    */
-
   static keg(kegName: string) {
     // If it doesn't exist, create it
     if (!this.instances[kegName]) this.instances[kegName] = new Keg(kegName);
