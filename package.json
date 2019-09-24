@@ -23,10 +23,11 @@
     "> 1%",
     "ie >= 9"
   ],
+  "repository": "https://github.com/joduplessis/keg",
   "bugs": {
-    "url": ""
+    "url": "https://joduplessis.com",
+    "email": "jo@joduplessis.com"
   },
-  "bundleDependencies": false,
   "contributors": [
     {
       "name": "joduplessis"
