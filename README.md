@@ -27,6 +27,8 @@ Keg.keg('kegger').tap('demo', async (val, pour) => {
   // And then move onto the next item in the queue
   // Equivalent to next()
   pour()
+}, () => {
+  // Tap is empty
 })
 
 // Add middleware to each message

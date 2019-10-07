@@ -20,8 +20,9 @@ export default class Keg {
      * Initialized the listening mechanic
      * @param {String} tapName - topic for the queue
      * @param {Object} callback - function for each call to process the q
+     * @param {Object} empty - function for when it's completed
      */
-    tap(tapName: string, callback: any): void;
+    tap(tapName: string, callback: any, empty: any): void;
     /**
      * Add midldeware
      * @param {String} tapName - specifies the queue

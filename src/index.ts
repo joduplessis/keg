@@ -32,13 +32,15 @@ export default class Keg {
    * Initialized the listening mechanic
    * @param {String} tapName - topic for the queue
    * @param {Object} callback - function for each call to process the q
+   * @param {Object} empty - function for when it's completed
    */
-  tap(tapName: string, callback: any) {
-    // If this outlet doesn't exist - create it
+  tap(tapName: string, callback: any, empty: any) {
+    // If this outlet doesn't exist - create the array 
+    // So the push doesn't break
     if (!this.taps[tapName]) this.taps[tapName] = [];
 
-    // Push our callback to the stack
-    this.taps[tapName].push(callback);
+    // Push our callback/empty to the stack
+    this.taps[tapName].push({ callback, empty });
 
     // Run it as soon as it's up
     // There might be nothing
@@ -69,6 +71,16 @@ export default class Keg {
     // Value to push out
     let value: any = this.queue[tapName][0];
 
+    // If it's empty (not uncreated)
+    // then call the empty one
+    if (this.queue[tapName]) {
+      if (this.queue[tapName].length == 0) {
+        if (this.taps[tapName].empty) {
+          this.taps[tapName].empty()
+        }
+      }
+    } 
+
     // If there is no value - return
     if (!value) return;
 
@@ -79,7 +91,7 @@ export default class Keg {
 
     // Pour it into all the taps
     // Then also give our tap a function to move to the next one
-    this.taps[tapName].map((tap: any) => tap(value, () => {
+    this.taps[tapName].map((tap: any) => tap.callback(value, () => {
       // Remove the current one from the stack
       this.queue[tapName].shift();
 
@@ -100,8 +112,9 @@ export default class Keg {
     // Add this value to the Q
     this.queue[tapName].push(value);
 
-    // Also check it's fine
+    // Also check it's there - don't refill something can doesn't exist
     if (!this.taps[tapName]) return;
+    if (!this.taps[tapName].callback) return;
 
     // And then only ever auto run the first value
     if (this.queue[tapName].length == 1) this.pour(tapName);
