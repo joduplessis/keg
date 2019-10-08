@@ -35,7 +35,7 @@ export default class Keg {
    * @param {Object} empty - function for when it's completed
    */
   tap(tapName: string, callback: any, empty: any) {
-    // If this outlet doesn't exist - create the array 
+    // If this outlet doesn't exist - create the array
     // So the push doesn't break
     if (!this.taps[tapName]) this.taps[tapName] = [];
 
@@ -71,16 +71,6 @@ export default class Keg {
     // Value to push out
     let value: any = this.queue[tapName][0];
 
-    // If it's empty (not uncreated)
-    // then call the empty one
-    if (this.queue[tapName]) {
-      if (this.queue[tapName].length == 0) {
-        if (this.taps[tapName].empty) {
-          this.taps[tapName].empty()
-        }
-      }
-    } 
-
     // If there is no value - return
     if (!value) return;
 
@@ -95,8 +85,16 @@ export default class Keg {
       // Remove the current one from the stack
       this.queue[tapName].shift();
 
-      // And pour it again
-      this.pour(tapName);
+      // If it's empty (not uncreated)
+      // then call the empty one
+      // Or pour it again
+      if (this.queue[tapName].length == 0) {
+        this.taps[tapName].map((tap: any) => {
+          if (tap.empty) tap.empty();
+        });
+      } else {
+        this.pour(tapName);
+      }
     }))
   }
 
@@ -114,9 +112,9 @@ export default class Keg {
 
     // Also check it's there - don't refill something can doesn't exist
     if (!this.taps[tapName]) return;
-    if (!this.taps[tapName].callback) return;
 
-    // And then only ever auto run the first value
+    // And then only ever auto run the top value
+    // Important for sending a syncronous stream - 1 by 1
     if (this.queue[tapName].length == 1) this.pour(tapName);
   }
 }
