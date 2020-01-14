@@ -32,7 +32,7 @@
   ],
   "homepage": "https://github.com/joduplessis/keg",
   "deprecated": false,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Keg is a flexible messaging queue with middleware powers.",
   "scripts": {
     "test": "",

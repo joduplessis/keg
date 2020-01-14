@@ -6,7 +6,6 @@
 > Keg is a messaging queue. It's not suitable for production yet. Expect things to break & change without notice. It includes TypeScript support.
 
 ## Installation
-You can install the library directly from here until it gets to a post `0.0.0` state.
 ```
 npm i @joduplessis/keg
 ```
